@@ -1,5 +1,0 @@
-Create a library that handles Strings, UserInput, FileContent and casts to and from string to int/float
-Split by Delimiter, Split by Eol
-Parse by JSON rules, parse by TOML Delimiters, Parse by XML Delimiter and so on
-
-Add Zon Packaging
