@@ -1,5 +1,6 @@
 # libparser
-Parser functions written in Zig to learn the language and create a useful tool for myself for future projects
+Parser functions written in Zig to learn the language and create a useful tool for myself for future projects:
+
  -) Create a function that reads input from the Stdin
  
  -) Create a function that splits strings by a user defined delimiter (pretty much the example code on the ziglang.org homepage, but with undefined delimiter)
