@@ -18,7 +18,7 @@ pub fn build(b: *std.Build) void {
     const mod = b.addModule("libparser", .{
         .source_file = .{ .path = "src/parser.zig" },
     });
-    _ = mod;
+    b.installArtifact(mod);
 
     const lib = b.addStaticLibrary(.{
         .name = "parser",
