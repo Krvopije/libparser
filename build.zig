@@ -15,6 +15,11 @@ pub fn build(b: *std.Build) void {
     // set a preferred release mode, allowing the user to decide how to optimize.
     const optimize = b.standardOptimizeOption(.{});
 
+    const mod = b.addModule("libparser", .{
+        .source_file = .{ .path = "src/parser.zig" },
+    });
+    _ = mod;
+
     const lib = b.addStaticLibrary(.{
         .name = "parser",
         // In this case the main source file is merely a path, however, in more
