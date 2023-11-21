@@ -21,7 +21,7 @@ pub fn parseToInt(comptime T: type, data: []const u8) !T {
 
 test "reading any user input" {
     var allocator = std.testing.allocator;
-    var cli_input = try readInputByCLI(allocator);
+    const cli_input = try readInputByCLI(allocator);
     std.debug.print("{s}\n", .{cli_input.?});
     defer allocator.free(cli_input.?);
 }
@@ -31,11 +31,11 @@ test "spliting any user input by different delimiters" {
     var split_content = std.ArrayList([]const u8).init(allocator);
     defer split_content.deinit();
     std.debug.print("\nPlease enter some Input: ", .{});
-    var cli_input = try readInputByCLI(allocator);
+    const cli_input = try readInputByCLI(allocator);
     std.debug.print("{s}\n", .{cli_input.?});
     defer allocator.free(cli_input.?);
     std.debug.print("\nPlease enter the seperators/delimiters: ", .{});
-    var delimiters = try readInputByCLI(allocator);
+    const delimiters = try readInputByCLI(allocator);
     defer allocator.free(delimiters.?);
     try splitStringByDelimiter(cli_input.?, delimiters.?, &split_content);
     for (split_content.items) |part| {
