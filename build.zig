@@ -36,7 +36,7 @@ pub fn build(b: *std.Build) void {
     // Creates a step for unit testing. This only builds the test executable
     // but does not run it.
     const main_tests = b.addTest(.{
-        .root_source_file = .{ .path = "src/parser.zig" },
+        .root_source_file = b.path("src/parser.zig"),
         .target = target,
         .optimize = optimize,
     });
