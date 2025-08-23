@@ -36,9 +36,7 @@ pub fn build(b: *std.Build) void {
     // Creates a step for unit testing. This only builds the test executable
     // but does not run it.
     const main_tests = b.addTest(.{
-        .root_source_file = b.path("src/parser.zig"),
-        .target = target,
-        .optimize = optimize,
+        .root_module = mod,
     });
 
     const run_main_tests = b.addRunArtifact(main_tests);
