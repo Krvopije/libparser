@@ -3,7 +3,7 @@ const testing = std.testing;
 
 pub fn readInputByCLI(allocator: std.mem.Allocator) !?[]const u8 {
     var buffer: [100]u8 = undefined;
-    const input = try std.io.getStdIn().reader().readUntilDelimiterOrEof(&buffer, '\n') orelse return null;
+    const input = try std.Io.GenericReader.readUntilDelimiterOrEof(&buffer, '\n') orelse return null;
     const return_value = try allocator.dupe(u8, input);
     return return_value;
 }
