@@ -2,10 +2,10 @@ const std = @import("std");
 const testing = std.testing;
 
 pub fn readInputByCLI(allocator: std.mem.Allocator) ![]const u8 {
-    var buffer: [100]u8 = undefined;
+    var buffer: [1024]u8 = undefined;
     const stdin = std.fs.File.stdin();
     var reader = stdin.reader(&buffer);
-    const input = try reader.readStreaming(&buffer);
+    const input = try reader.takeDelimiterExcluse('\n');
     const return_value = try allocator.dupe(u8, buffer[0..input]);
     return return_value;
 }
