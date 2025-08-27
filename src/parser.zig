@@ -5,7 +5,7 @@ pub fn readInputByCLI(allocator: std.mem.Allocator) ![]const u8 {
     var buffer: [1024]u8 = undefined;
     const stdin = std.fs.File.stdin();
     var reader = stdin.reader(&buffer);
-    const input = try reader.takeDelimiterExclusive('\n');
+    const input = try std.Io.Reader.takeDelimiterExclusive(&reader, '\n');
     const return_value = try allocator.dupe(u8, buffer[0..input]);
     return return_value;
 }
